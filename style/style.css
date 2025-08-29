@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arima:wght@100..700&family=Manufacturing+Consent&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arima:wght@100..700&family=Manufacturing+Consent&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arbutus', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #003366;
+    background-color: #b3ebf2;
+
+}
+
+.cotainer{
+    width: 50%;
+    height: 70vh;
+    background-color: #D5F5F8;
+    color: rgb(4, 92, 92);
+    margin: 5% auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(67, 161, 154);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#title{
+    font-size: 2em;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgb(67, 161, 154);
+}
+.icons{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    color: rgb(4, 92, 92);
+}
+
+.icons i#light{
+    display: none;
+}
+
+.icons i:hover{
+    color: rgb(67, 161, 154);
+    cursor: pointer;
+}
+
+.mode{
+    font-family: "Noto Serif", serif;
+    font-size: 1.1rem;
+    font-style: normal;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.mode h2,p{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.btn{
+    width: 40%;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(4, 92, 92);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(67, 161, 154);
+}
