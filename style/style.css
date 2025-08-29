@@ -159,7 +159,7 @@ body {
     animation: glow 1s infinite alternate;
 }
 
-#restart { 
+#restart, #home { 
     width: 200px; 
     padding: 10px; 
     font-size: 1em; 
