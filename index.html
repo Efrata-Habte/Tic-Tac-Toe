@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style/style.css">
     <script defer src="Script/script.js"></script>
 </head>
 <body>
     
-    <section class="cotainer" >
+    <section class="cotainer">
+        <!-- ICONS (top right) -->
         <div class="icons">
             <i class="fa-solid fa-moon" id="dark"></i>
             <i class="fa-solid fa-sun" id="light"></i>
             <i class="fa-solid fa-circle-info"></i>
         </div>
+
+        <!-- TITLE -->
         <h1 id="title">TIC-TIC-TOE</h1>
         <hr>
+
+        <!-- MODE SELECTION -->
         <section class="mode" id="visible">
             <h2>Select Game Mode</h2>
             <p>Choose between single player and two player modes to start playing.</p>
@@ -26,8 +31,8 @@
             <button id="two" class="btn">Two Player</button>
         </section>
         
+        <!-- GAME AREA -->
         <section class="game-area" id="hidden">
-            
             <section class="board">
                 <div class="box" data-index="0"></div>
                 <div class="box" data-index="1"></div>
@@ -44,8 +49,8 @@
                     <button id="restart" class="btn">Restart</button>
                 </div>
             </section>
-
-    </section>
+        </section> 
+    </section> 
 
 </body>
 </html>
