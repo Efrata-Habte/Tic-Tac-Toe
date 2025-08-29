@@ -1,79 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arima:wght@100..700&family=Manufacturing+Consent&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arima:wght@100..700&family=Manufacturing+Consent&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arbutus', sans-serif;
 }
 
-body{
+body {
     width: 100vw;
     height: 100vh;
-    background-color: #003366;
     background-color: #b3ebf2;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
 }
 
-.cotainer{
-    width: 50%;
-    height: 70vh;
+/* === MAIN CONTAINER === */
+.container {
+    width: 95%;
+    max-width: 550px;
     background-color: #D5F5F8;
     color: rgb(4, 92, 92);
-    margin: 5% auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(67, 161, 154);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     padding: 20px;
+    position: relative;
+    margin: auto;
 }
 
-#title{
-    font-size: 2em;
-    margin-top: 10px;
+/* === TITLE === */
+#title {
+    font-size: 1.8em;
     text-shadow: 0 0 5px rgb(67, 161, 154);
 }
-.icons{
-    width: 20%;
+
+/* === ICONS === */
+.icons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     display: flex;
-    justify-content: space-around;
-    font-size: 1.5em;
+    gap: 15px;
+    font-size: 1.3em;
     color: rgb(4, 92, 92);
 }
-
-.icons i#light{
-    display: none;
+.icons i#light { 
+    display: none; 
+}
+.icons i:hover { 
+    color: rgb(67, 161, 154); 
+    cursor: pointer; 
+    transform: scale(1.2); 
+    transition: all 0.2s ease;
 }
 
-.icons i:hover{
-    color: rgb(67, 161, 154);
-    cursor: pointer;
-}
-
-.mode{
-    font-family: "Noto Serif", serif;
-    font-size: 1.1rem;
-    font-style: normal;
-    margin: 10px;
+/* === MODE SELECTION === */
+.mode {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
 }
-.mode h2,p{
-    font-size: 1.2em;
+.mode h2 {
+    font-family: "Noto Serif", serif;
+    font-size: 1.3em;
     font-weight: bold;
 }
-.btn{
-    width: 40%;
+.mode p {
+    font-family: "Noto Serif", serif;
+    font-size: 0.9em;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+/* === BUTTONS === */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+.btn {
+    width: 180px;
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 0.95em;
     border: none;
     border-radius: 5px;
     background-color: rgb(4, 92, 92);
     color: white;
     cursor: pointer;
     box-shadow: 0 0 5px rgb(67, 161, 154);
+    transition: all 0.2s ease;
+}
+.btn:hover { background-color: rgb(67, 161, 154); transform: scale(1.05); }
+
+/* === GAME AREA === */
+#hidden { display: none; }
+.game-area { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    width: 100%; 
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 8px;
+    justify-content: center;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #EEFCFD;
+    border: 3px solid #1FA3BB;
+    font-size: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.box:hover { 
+    background-color: #D5F5F8; 
+    transform: 
+    scale(1.05); }
+.box.taken { 
+    cursor: not-allowed; 
+}
+
+/* === INFO SECTION === */
+.info { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+#player { 
+    font-size: 1.5em; 
+    color: #1FA3BB; 
+    font-weight: bold; 
+}
+#player.winner { 
+    color: #f57c00; 
+    text-shadow: 0 0 10px #f57c00; 
+    animation: glow 1s infinite alternate;
+}
+
+#restart { 
+    width: 200px; 
+    padding: 10px; 
+    font-size: 1em; 
+}
+
+/* Media query for very small screens */
+@media (max-height: 650px) {
+    .container {
+    transform: scale(0.9); 
+    transform-origin: center; 
+    }
+
 }
