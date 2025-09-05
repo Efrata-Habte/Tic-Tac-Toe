@@ -11,6 +11,7 @@ const boxes= document.querySelectorAll('.box');
 let currentPlayer= 'X';
 let gameOver= false;
 let board= ['', '', '', '', '', '', '', '', ''];
+let gameMode= "";
 
 let winningCombo=[
     [0,1,2],[3,4,5],[6,7,8], // Rows
@@ -61,7 +62,7 @@ function boxClick(event){
         return;
     }
 
-    if (box.every(cell => cell !== '')){
+    if (board.every(cell => cell !== '')){
         playerText.textContent= "It's a draw! 🤝";
         playerText.classList.add('draw');
         gameOver=true;
@@ -72,7 +73,11 @@ function boxClick(event){
     playerText.textContent= `Player ${currentPlayer}'s turn `;
 
     if (gameMode==='single' && currentPlayer==='O' && !gameOver) {
-        aiMove();
+        playerText.textContent= "Computer's turn 🤖";
+        setTimeout(aiMove,500);
+    }
+    else{
+        playerText.textContent= `Player ${currentPlayer}'s turn `;
     }
 }
 
@@ -81,19 +86,35 @@ function checkWin(){
     return winningCombo.some(combo => combo.every(index=> board[index]===currentPlayer));
 }
 
+function aiMove(){  
+
+    let randomIndex= Math.floor(Math.random()*9);
+
+    while(board[randomIndex] !== ''){
+        randomIndex= Math.floor(Math.random()*9);
+    }
+    if (!gameOver){
+        boxes[randomIndex].click();
+    }
+}
+
 
 
 // Event listeners for buttons
 single.addEventListener('click',()=>{
     showGameArea();
-    playerText.style.display='none';
+    gameMode='single';
     initializeGame();
+    playerText.textContent = "Your turn (X)";
+    
+
 });
 two.addEventListener('click', ()=>{
     showGameArea();
-    playerText.style.display='block';
-    playerText.textContent= "Player X's turn";
+    gameMode='two';
     initializeGame();
+    playerText.textContent= "Player X's turn";
+    
 });
 
 restart.addEventListener('click',()=>{
